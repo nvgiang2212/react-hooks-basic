@@ -13,11 +13,11 @@ function PostList(props) {
   const { posts } = props
 
   return (
-    <ol className="post-list">
+    <ul className="post-list">
       {posts.map(post => (
         <li key={post.id}>{post.title} - <span>{post.author}</span></li>
       ))}
-    </ol>
+    </ul>
   );
 }
 
