@@ -5,6 +5,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import Pagination from './components/Pagination';
 import queryString from 'query-string'
+import PostFiltersForm from './components/PostFiltersForm';
 
 const initList = [
   { id: 1, title: 'I love Easy Frontend! 😍 ' },
@@ -28,7 +29,8 @@ function App() {
 
   const [filters, setFilters] = useState({
     _limit: 10,
-    _page: 1
+    _page: 1,
+    title_like: ''
   })
 
   function handleOnPageChange(newPage) {
@@ -85,6 +87,14 @@ function App() {
     setTodoList(newTodoList)
   }
 
+  function handleFiltersChange(newFilters) {
+    setFilters({
+      ...filters,
+      _page: 1,
+      title_like: newFilters.searchTerm
+    })
+  }
+
   return (
     <div className="app">
       <h1>React Hooks - TodoList!</h1>
@@ -92,6 +102,9 @@ function App() {
       <TodoForm onSubmitForm={handleSubmit} />
       <TodoList todos={todoList} onClickTodoList={handleClick} />
       <hr />
+
+      <h1>React Hooks - Post List</h1>
+      <PostFiltersForm onSubmitFiltersForm={handleFiltersChange} />
       <PostList posts={postList} />
 
       <Pagination pagination={pagination} onPageChange={handleOnPageChange} />
