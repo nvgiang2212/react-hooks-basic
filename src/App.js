@@ -8,6 +8,7 @@ import queryString from 'query-string'
 import PostFiltersForm from './components/PostFiltersForm';
 import Clock from './components/Clock';
 import BetterClock from './components/BetterClock';
+import MagicBox from './components/MagicBox';
 
 const initList = [
   { id: 1, title: 'I love Easy Frontend! 😍 ' },
@@ -101,6 +102,9 @@ function App() {
 
   return (
     <div className="app">
+      <MagicBox />
+      <hr />
+
       {showClock && <Clock />}
       <button onClick={() => setShowClock(false)}>Hide Clock</button>
       <hr />
