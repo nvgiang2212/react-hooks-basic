@@ -6,6 +6,7 @@ import TodoList from './components/TodoList';
 import Pagination from './components/Pagination';
 import queryString from 'query-string'
 import PostFiltersForm from './components/PostFiltersForm';
+import Clock from './components/Clock';
 
 const initList = [
   { id: 1, title: 'I love Easy Frontend! 😍 ' },
@@ -95,8 +96,14 @@ function App() {
     })
   }
 
+  const [showClock, setShowClock] = useState(true)
+
   return (
     <div className="app">
+      {showClock && <Clock />}
+      <button onClick={() => setShowClock(false)}>Hide Clock</button>
+      <hr />
+
       <h1>React Hooks - TodoList!</h1>
 
       <TodoForm onSubmitForm={handleSubmit} />
