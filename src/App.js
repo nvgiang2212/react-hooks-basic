@@ -7,6 +7,7 @@ import Pagination from './components/Pagination';
 import queryString from 'query-string'
 import PostFiltersForm from './components/PostFiltersForm';
 import Clock from './components/Clock';
+import BetterClock from './components/BetterClock';
 
 const initList = [
   { id: 1, title: 'I love Easy Frontend! 😍 ' },
@@ -102,6 +103,8 @@ function App() {
     <div className="app">
       {showClock && <Clock />}
       <button onClick={() => setShowClock(false)}>Hide Clock</button>
+      <hr />
+      <BetterClock />
       <hr />
 
       <h1>React Hooks - TodoList!</h1>
